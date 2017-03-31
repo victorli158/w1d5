@@ -35,12 +35,11 @@ attr_reader :value, :parent, :children
     if self.value == target_value
       return self
     else
-      search = nil
       self.children.each do |child|
         search = child.dfs(target_value)
-        break unless search.nil?
+        return search unless search.nil?
       end
-      return search
+      nil
     end
   end
 
